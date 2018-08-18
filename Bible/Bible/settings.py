@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'verse'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'Bible.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default':env.db()
+    'default':env.db(),
 }
 
 # DATABASES = {

@@ -9,4 +9,4 @@ class Bible(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'BIBle'
+        db_table = 'Bible'
