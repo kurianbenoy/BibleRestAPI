@@ -2,9 +2,11 @@
 
 **Installation**
 
-`pip install pipenv`
+```
+pip install pipenv
 
-`pipenv install`
+pipenv install
+```
 
 **MYSQL setup**
 
@@ -22,7 +24,7 @@ sudo apt-get install mysql-server
      ```
      $ mysql -u <user> -p
      ```
-   - Inside shell
+- Inside shell
      ```
      >> create database <your_db_name> character set utf8;
      >> create user '<your_db_username>@localhost' identified by '<your_db_pass>'
@@ -30,3 +32,5 @@ sudo apt-get install mysql-server
      >> flush privileges;
      >> exit
      ```
+
+**Please note : I am using django-environ for hiding secrets in my settings.py .Check Project url for [setup](https://github.com/joke2k/django-environ)

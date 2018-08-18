@@ -9,6 +9,14 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
+import environ
+root = environ.Path(__file__)
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False),
+)
+# reading .env file
+environ.Env.read_env()
 
 import os
 
@@ -20,12 +28,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'bf%k2tv(&(zgy*)+sck9+yu#sdooqf37a5y+8v2)jn2ot_ka_n'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1',]
 
 
 # Application definition
@@ -73,16 +81,19 @@ WSGI_APPLICATION = 'Bible.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-         'OPTIONS': {
-            'read_default_file': '/etc/mysql/my.cnf',
-        },
-
-    }
+    'default':env.db()
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#          'OPTIONS': {
+#             'read_default_file': 'mybible.cnf',
+#         },
+#
+#     }
+# }
 
 
 # Password validation
